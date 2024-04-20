@@ -1,15 +1,23 @@
 import React from 'react';
-import BlogBackground from './components/BlogBackground';
-import ProfileBox from './components/ProfileBox';
-import StoryBox from './components/StoryBox';
+import {
+  Tags,
+  Albums,
+  StoryBox,
+  ProfileBox,
+  BlogBackground,
+} from './components';
 
 export default function page() {
   return (
     <div className="relative w-full h-full">
       <BlogBackground />
-      <section className="flex flex-row m-100 items-center">
+      <section className="flex flex-row m-100 py-50">
         <ProfileBox />
         <StoryBox />
+      </section>
+      <section className="flex flex-row m-100">
+        <Tags />
+        <Albums />
       </section>
     </div>
   );

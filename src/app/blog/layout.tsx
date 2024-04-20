@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-
+import { luckiestGuy, pretendard } from '/src/app/fonts';
 import BlogHeader from './components/BlogHeader';
 
 export const metadata: Metadata = {
@@ -9,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <BlogHeader>{children}</BlogHeader>;
-    </div>
+    <html lang="ko">
+      <body className={`${luckiestGuy.variable} ${pretendard.variable}`}>
+        <BlogHeader>{children}</BlogHeader>
+      </body>
+    </html>
   );
 }
