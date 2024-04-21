@@ -1,5 +1,30 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { NavigationIcons } from '@/components/Common';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from '@/components/HeaderDrawer/drawer';
+
+export function HeaderDrawer({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(true);
+  const name = 'dotheZ';
+
+  return (
+    <Drawer direction="right" open={isOpen} onOpenChange={setIsOpen}>
+      <DrawerTrigger>{children}</DrawerTrigger>
+      <DrawerContent className="w-300 h-full fixed right-0">
+        <div className="py-120 px-60">
+          <div className="font-luckiest text-[20px] text-primary ">
+            @ {name}
+          </div>
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+}
 
 export default function BlogHeader({
   children,
@@ -9,14 +34,14 @@ export default function BlogHeader({
   const title = ' do the best Zl금 ';
 
   return (
-    <div>
-      <header className="w-full">
-        <nav className="flex flex-row h-60 items-center justify-between p-10 px-20 bg-opacity-50 bg-[#c5c5c0]">
-          <div className="text-xl px-10">{title}</div>
+    <div className="relative">
+      <header className="relative top-0 z-10 w-full">
+        <nav className="flex flex-row h-60 items-center justify-between p-10 px-20 bg-opacity-60 bg-[#bebebe]">
+          <div className="text-xl text-[#363636] px-10">{title}</div>
           <NavigationIcons />
         </nav>
       </header>
-      {children}
+      <div className="absolute top-0">{children}</div>
     </div>
   );
 }
