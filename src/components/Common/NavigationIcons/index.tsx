@@ -1,3 +1,4 @@
+import { HeaderDrawer } from '@/components/HeaderDrawer';
 import Link from 'next/link';
 import Search from '../Icons/Search';
 import Alaram from '../Icons/Alarm';
@@ -14,7 +15,9 @@ export default function NavigationIcons() {
       <Alaram />
 
       {/* TODO: HamburgerMenu 연결 */}
-      <HamburgerMenu />
+      <HeaderDrawer>
+        <HamburgerMenu />
+      </HeaderDrawer>
     </div>
   );
 }
