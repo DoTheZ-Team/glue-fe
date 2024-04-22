@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import { NavigationIcons } from '@/components/Common';
 
 export default function BlogHeader({

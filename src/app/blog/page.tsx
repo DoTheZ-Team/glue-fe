@@ -7,7 +7,7 @@ import {
   BlogBackground,
 } from './components';
 
-export default function page() {
+export default function Page() {
   return (
     <div className="relative w-full h-full font-pretendard">
       <BlogBackground />

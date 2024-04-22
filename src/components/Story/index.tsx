@@ -16,7 +16,6 @@ export default function Story({ title, content }: StoryProps) {
   return (
     <div className="h-140 font-pretendard">
       <div className="h-30 text-xl font-semibold ">{title}</div>
-      {/* <p className="w-100 h-3 bg-primary" /> */}
       <div className=" h-100 white-space:normal break-words text-overflow">
         {content}
       </div>

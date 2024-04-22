@@ -33,23 +33,21 @@ export default function Navigator() {
     ];
   }, [pathname]);
   return (
-    <div>
-      <section className="flex flex-col p-4">
-        {routes.map((route) => {
-          return (
-            <Link key={route.label} href={route.href}>
-              <div
-                className={cn(
-                  'text-[16px] text-[#5d5b5b] rounded-lg py-2 px-5 mb-30 inline-block',
-                  route.isActive && 'bg-primary/20',
-                )}
-              >
-                {route.label}
-              </div>
-            </Link>
-          );
-        })}
-      </section>
-    </div>
+    <section className="flex flex-col p-4">
+      {routes.map(({ label, href, isActive }) => {
+        return (
+          <Link key={label} href={href}>
+            <div
+              className={cn(
+                'text-16 text-[#5d5b5b] rounded-8 py-2 px-5 mb-30 inline-block',
+                isActive && 'bg-primary/20',
+              )}
+            >
+              {label}
+            </div>
+          </Link>
+        );
+      })}
+    </section>
   );
 }

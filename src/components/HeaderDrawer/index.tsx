@@ -24,9 +24,7 @@ export function HeaderDrawer({ children }: { children: React.ReactNode }) {
           </div>
         </DrawerClose>
         <div className="px-60 py-50">
-          <div className="font-luckiest text-[20px] text-primary ">
-            @ {name}
-          </div>
+          <div className="font-luckiest text-20 text-primary ">@ {name}</div>
           <p className="h-1 w-200 bg-[#b0aeae] mb-10" />
           <Navigator />
         </div>

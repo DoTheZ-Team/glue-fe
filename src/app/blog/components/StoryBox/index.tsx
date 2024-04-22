@@ -6,7 +6,6 @@ export function Story() {
   return (
     <div className="h-140">
       <div className="h-30 text-xl font-bold ">보통의 일상</div>
-      {/* <p className="w-100 h-3 bg-primary" /> */}
       <div className="my-5 h-100 white-space:normal break-words text-overflow">
         공포물을 별로 좋아하지 않는 나는 본래 파묘를 볼 계획이 없었지만, 다들
         재밌다는 입소문과 900만 돌파라는 타이틀에 군중심리가 자극됐다. 걱정과는

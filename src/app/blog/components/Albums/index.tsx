@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 
 export default function Albums() {
@@ -13,11 +12,11 @@ export default function Albums() {
         <p className="w-145 h-3 bg-primary mb-2" />
       </div>
       <div className="flex flex-row gap-10 py-40">
-        {images.map((index) => (
-          <div key={index} className="w-150 h-150 relative overflow-hidden">
+        {images.map((image) => (
+          <div key={image} className="w-150 h-150 relative overflow-hidden">
             <Image
-              alt={`Image ${index}`}
-              src={`/tempImage/${index}.jpg`}
+              alt={`Image ${image}`}
+              src={`/tempImage/${image}.jpg`}
               layout="fill"
               objectFit="cover"
             />
