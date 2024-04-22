@@ -1,4 +1,4 @@
-import HamburgerMenu from '@/components/Common/Icons/HamburgerMenu';
+import { HamburgerMenu } from '@/components/Common';
 
 export function Story() {
   return (
