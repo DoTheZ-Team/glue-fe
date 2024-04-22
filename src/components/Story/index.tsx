@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface StoryProps {
   title: string;
   content: string;

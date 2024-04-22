@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Tags() {
   const tags = ['technology', 'daily', 'puppy', 'cooking', 'React'];
   return (

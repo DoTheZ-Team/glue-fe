@@ -1,4 +1,3 @@
-import React from 'react';
 import HamburgerMenu from '@/components/Common/Icons/HamburgerMenu';
 
 export function Story() {
