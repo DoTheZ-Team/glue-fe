@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import {
   Drawer,
   DrawerContent,
@@ -10,7 +10,7 @@ import {
 import { Close } from '../Common/Icons';
 import Navigator from './Navigator';
 
-export function HeaderDrawer({ children }: { children: React.ReactNode }) {
+export function HeaderDrawer({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const name = 'dotheZ';
 

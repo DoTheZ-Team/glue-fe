@@ -1,5 +1,4 @@
 import React from 'react';
-import './story.css';
 
 interface StoryProps {
   title: string;

@@ -1,6 +1,5 @@
 import React from 'react';
 import HamburgerMenu from '@/components/Common/Icons/HamburgerMenu';
-import './story.css';
 
 export function Story() {
   return (
