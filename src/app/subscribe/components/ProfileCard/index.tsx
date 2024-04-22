@@ -16,7 +16,7 @@ export default function ProfileCard({ id }: ProfileCardProps) {
   } = userData;
 
   return (
-    <article className="flex flex-row gap-10 items-end  m-3">
+    <article className="flex flex-row gap-10 items-end m-3">
       <UserIcon src={profile} />
       <div className="flex flex-col">
         <div className="text-[13px] text-[#626161]">{name}</div>

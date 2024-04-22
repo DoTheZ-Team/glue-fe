@@ -12,9 +12,7 @@ export default function UserIcon({
   src = 'https://i.ibb.co/gjzHDN2/Cute-Yawning-Cat.jpg',
 }: UserIconProps) {
   return (
-    <Avatar
-      className={cn('w-[33px] h-[33px]', size === 'lg' && 'w-[56px] h-[56px]')}
-    >
+    <Avatar className={cn('w-33 h-33', size === 'lg' && 'w-56 h-56')}>
       <AvatarImage src={src} />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
