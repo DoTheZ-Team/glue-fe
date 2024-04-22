@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: '구독페이지',
 };
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
       <nav className="flex justify-between px-30 pt-30">
