@@ -1,4 +1,3 @@
-import React from 'react';
 import { users } from '@/app/lib/dummyData';
 import UserIcon from './UserIcon';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import Story from '@/components/Story';
 import Image from 'next/image';
 import ProfileCard from '../ProfileCard';
