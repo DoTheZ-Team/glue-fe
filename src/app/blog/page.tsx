@@ -9,7 +9,7 @@ import {
 
 export default function page() {
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full font-pretendard">
       <BlogBackground />
       <section className="flex flex-row m-100 py-50">
         <ProfileBox />

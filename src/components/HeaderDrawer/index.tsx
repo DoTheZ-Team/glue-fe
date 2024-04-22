@@ -11,7 +11,7 @@ import { Close } from '../Common/Icons';
 import Navigator from './Navigator';
 
 export function HeaderDrawer({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const name = 'dotheZ';
 
   return (

@@ -6,7 +6,7 @@ import HamburgerMenu from '../Icons/HamburgerMenu';
 
 export default function NavigationIcons() {
   return (
-    <div className="flex gap-12">
+    <div className="flex items-center gap-12">
       <Link href="/search">
         <Search />
       </Link>

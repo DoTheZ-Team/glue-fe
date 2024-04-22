@@ -17,12 +17,12 @@ export default function Navigator() {
       },
       {
         label: '나의 구독',
-        isActive: pathname === '/mypage',
-        href: '/mypage',
+        isActive: pathname === '/subscribe',
+        href: '/subscribe',
       },
       {
         label: '블로그 추천',
-        isActive: pathname === '/mypage',
+        isActive: pathname === '/recommendation',
         href: '/mypage',
       },
       {
@@ -34,14 +34,14 @@ export default function Navigator() {
   }, [pathname]);
   return (
     <div>
-      <section className="p-4">
+      <section className="flex flex-col p-4">
         {routes.map((route) => {
           return (
             <Link key={route.label} href={route.href}>
               <div
                 className={cn(
-                  'text-[16px] hover:bg-neutral-700 rounded-lg p-2 pb-30',
-                  route.isActive && 'bg-primary/50',
+                  'text-[16px] text-[#5d5b5b] rounded-lg py-2 px-5 mb-30 inline-block',
+                  route.isActive && 'bg-primary/20',
                 )}
               >
                 {route.label}

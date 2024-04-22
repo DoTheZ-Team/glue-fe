@@ -1,30 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationIcons } from '@/components/Common';
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-} from '@/components/HeaderDrawer/drawer';
-
-export function HeaderDrawer({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(true);
-  const name = 'dotheZ';
-
-  return (
-    <Drawer direction="right" open={isOpen} onOpenChange={setIsOpen}>
-      <DrawerTrigger>{children}</DrawerTrigger>
-      <DrawerContent className="w-300 h-full fixed right-0">
-        <div className="py-120 px-60">
-          <div className="font-luckiest text-[20px] text-primary ">
-            @ {name}
-          </div>
-        </div>
-      </DrawerContent>
-    </Drawer>
-  );
-}
 
 export default function BlogHeader({
   children,
