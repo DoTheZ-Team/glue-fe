@@ -60,7 +60,7 @@ export default function Page() {
             </div>
 
             <article className="grid grid-cols-3 gap-40 py-50">
-              {posts.map((post) => (
+              {posts.map(({ id, title, content, src ) => (
                 <FeedBox
                   id={post.id}
                   key={post.id}
