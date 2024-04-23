@@ -17,7 +17,7 @@ export default function FileThumbnails({
   return (
     <div>
       {file ? (
-        <div className={`relative ${containerSize}`}>
+        <div className={`relative ${containerSize} border border-[#afacac] `}>
           <Image
             src={URL.createObjectURL(file)}
             alt={file.name}
