@@ -3,8 +3,8 @@ export const users = [
     id: 1,
     name: 'John Doe',
     title: 'zuae blog',
-    background: 'Software Engineer',
-    profile: '/images/1.png',
+    background: '/tempImage/bg.jpeg',
+    profile: '/tempImage/2.jpg',
     subscription: [2, 3],
   },
   {
@@ -95,3 +95,13 @@ export const subscriptions = [
   { id: 4, subscriptor: [4] },
   { id: 5, subscriptor: [5] },
 ];
+
+export function getProfileImageById(userId) {
+  const user = users.find((mem) => mem.id === userId);
+  return user ? user.profile : null;
+}
+
+export function getBackgroundImageById(userId) {
+  const user = users.find((mem) => mem.id === userId);
+  return user ? user.background : null;
+}
