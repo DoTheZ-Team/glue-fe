@@ -1,6 +1,6 @@
-import { Close } from '@/components/Common';
+import { Close, Button } from '@/components/Common';
 import Image from 'next/image';
-import React from 'react';
+import { cn } from '@/utils';
 
 type FileThumbnailsProps = {
   file: File | null;
@@ -13,11 +13,17 @@ export default function FileThumbnails({
   deleteFileHandler,
   size = 'sm',
 }: FileThumbnailsProps) {
-  const containerSize = size === 'sm' ? 'w-250 h-300' : 'w-500 h-250';
   return (
     <div>
       {file ? (
-        <div className={`relative ${containerSize} border border-[#afacac] `}>
+        <div
+          className={cn(
+            'relative',
+            size === 'sm' ? 'w-250 h-300' : 'w-500 h-250',
+            'border',
+            'border-[#afacac]',
+          )}
+        >
           <Image
             src={URL.createObjectURL(file)}
             alt={file.name}
@@ -27,12 +33,12 @@ export default function FileThumbnails({
             objectFit="cover"
           />
           {deleteFileHandler && (
-            <div
+            <Button
               className="absolute top-0 right-0 cursor-pointer"
               onClick={deleteFileHandler}
             >
               <Close className="m-3" />
-            </div>
+            </Button>
           )}
         </div>
       ) : (

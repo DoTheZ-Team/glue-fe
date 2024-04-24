@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/Common';
+import { Button, Input } from '@/components/Common';
 import { useRef } from 'react';
 
 interface ProfileEditProps {
@@ -10,24 +10,23 @@ interface ProfileEditProps {
 export default function FileEdit({ setFile }: ProfileEditProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function selectFile(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputEl = e.target as HTMLInputElement;
-    const selectedFile = inputEl.files && inputEl.files[0];
 
-    if (selectedFile) {
-      setFile(selectedFile);
+    if (inputEl.files?.[0]) {
+      setFile(inputEl.files?.[0]);
     }
-  }
+  };
 
   return (
-    <div className="">
-      <input
+    <div>
+      <Input
         type="file"
         accept="image/*"
         id="profile"
-        style={{ display: 'none' }}
+        className="hidden"
         ref={inputRef}
-        onChange={selectFile}
+        onChange={handleFileSelect}
       />
       <Button
         onClick={() => inputRef.current?.click()}

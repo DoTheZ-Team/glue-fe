@@ -11,7 +11,7 @@ export const users = [
     id: 2,
     name: 'Jane Smith',
     title: 'dotheZ',
-    background: 'Graphic Designer',
+    background: '/tempImage/1.jpg',
     profile: '/images/2.png',
     subscription: [1],
   },
@@ -19,7 +19,7 @@ export const users = [
     id: 3,
     name: 'Michael Jo',
     title: 'az azaaa fighting',
-    background: 'Data Scientist',
+    background: '/tempImage/2.jpg',
     profile: '/images/3.png',
     subscription: [1, 3],
   },
@@ -27,7 +27,7 @@ export const users = [
     id: 4,
     name: 'Emily Davi',
     title: 'cheer up!',
-    background: 'Marketing Specialist',
+    background: '/tempImage/bg.jpeg',
     profile: '/images/4.png',
     subscription: [2],
   },
@@ -35,7 +35,15 @@ export const users = [
     id: 5,
     name: 'ahha happiness',
     title: 'zuae blog',
-    background: 'UI/UX Designer',
+    background: '/tempImage/bg.jpeg',
+    profile: '/images/5.png',
+    subscription: [1, 2, 3],
+  },
+  {
+    id: 6,
+    name: 'ahha happiness',
+    title: 'zuae blog',
+    background: '/tempImage/bg.jpeg',
     profile: '/images/5.png',
     subscription: [1, 2, 3],
   },
@@ -46,7 +54,7 @@ export const posts = [
     id: 1,
     title: '달리랑 집콕생활',
     content:
-      '오늘은 달리랑 하루종일 집에서 뒹굴뒹굴 놀았다. 오랜만에 과제도 없고 약속도 없는 평화로운 하루였다. 아무 일도 없는 게 소소하지만 확실한 행복임이 요즈음 더 확실히 느껴',
+      '오늘은 달리랑 하루종일 집에서 뒹굴뒹굴 놀았다. 오랜만에 과제도 없고 약속도 없는 평화로운 하루였다. 아무 일도 없는 게 소소하지만 확실한 행복임이 요즈음 더 확실히 느껴진다. 달리랑 하루종일 집에서 뒹굴뒹굴 놀았다. 오랜만에 과제도 없고 약속도 없는 평화로운 하루였다. 아무 일도 없는 게 소소하지만 확실한 행복임이 요즈음 더 확실히 느껴진다. 달리랑 하루종일 집에서 뒹굴뒹굴 놀았다. 오랜만에 과제도 없고 약속도 없는 평화로운 하루였다. 아무 일도 없는 게 소소하지만 확실한 행복임이 요즈음 더 확실히 느껴진다.',
     tags: ['technology', 'coding'],
     src: '/tempImage/1.jpg',
   },
@@ -104,4 +112,9 @@ export function getProfileImageById(userId) {
 export function getBackgroundImageById(userId) {
   const user = users.find((mem) => mem.id === userId);
   return user ? user.background : null;
+}
+
+export function getTitleById(userId) {
+  const user = users.find((mem) => mem.id === userId);
+  return user ? user.title : null;
 }

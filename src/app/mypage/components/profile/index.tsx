@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getProfileImageById } from '@/app/lib/dummyData';
+import { Input } from '@/components/Common';
 import FileEdit from '../FileEdit';
 import FileThumbnails from '../FileEdit/FileThumbnails';
 
@@ -43,7 +44,7 @@ export default function Profile({ id }: { id: number }) {
           <label htmlFor="name" className="text-[#747373]">
             name
           </label>
-          <input
+          <Input
             id="name"
             type="text"
             value={name}
