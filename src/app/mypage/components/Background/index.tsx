@@ -1,10 +1,10 @@
 'use client';
 
 import { getBackgroundImageById } from '@/app/lib/dummyData';
-import { FileEdit, FileThumbnails, useDefaultFile } from '../Common';
+import { FileEdit, FileThumbnails, FileSrc } from '../Common';
 
 export default function Background() {
-  const [backgroundFile, setBackgroundFile] = useDefaultFile(
+  const [backgroundFile, setBackgroundFile] = FileSrc(
     getBackgroundImageById(1),
     'background.jpeg',
     'image/jpeg',

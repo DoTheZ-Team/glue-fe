@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const useDefaultFile = (
+const FileSrc = (
   getDefaultFile: string,
   fileName: string,
   fileType: string,
@@ -10,9 +10,8 @@ const useDefaultFile = (
   const [file, setFile] = useState<File | null>(null);
 
   useEffect(() => {
-    const defaultUrl = getDefaultFile;
-    if (defaultUrl) {
-      fetch(defaultUrl)
+    if (getDefaultFile) {
+      fetch(getDefaultFile)
         .then((res) => res.blob())
         .then((blob) => {
           const defaultFile = new File([blob], fileName, { type: fileType });
@@ -27,4 +26,4 @@ const useDefaultFile = (
   return [file, setFile] as const;
 };
 
-export default useDefaultFile;
+export default FileSrc;
