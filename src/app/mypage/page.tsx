@@ -5,16 +5,16 @@ import BlogName from './components/BlogName';
 
 export default function Page() {
   return (
-    <main>
+    <div>
       <Title />
       <section className="flex flex-col items-center py-400">
         <p className="h-1 w-500 bg-[#979696]" />
-        <Profile id={1} />
+        <Profile />
         <p className="h-1 w-500 bg-[#979696]" />
         <BlogName />
         <p className="h-1 w-500 bg-[#979696]" />
-        <Background id={1} />
+        <Background />
       </section>
-    </main>
+    </div>
   );
 }

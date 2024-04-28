@@ -105,16 +105,16 @@ export const subscriptions = [
 ];
 
 export function getProfileImageById(userId) {
-  const user = users.find((mem) => mem.id === userId);
-  return user ? user.profile : null;
+  const { profile } = users.find(({ id }) => id === userId);
+  return profile || null;
 }
 
 export function getBackgroundImageById(userId) {
-  const user = users.find((mem) => mem.id === userId);
-  return user ? user.background : null;
+  const { background } = users.find(({ id }) => id === userId);
+  return background || null;
 }
 
 export function getTitleById(userId) {
-  const user = users.find((mem) => mem.id === userId);
-  return user ? user.title : null;
+  const { title } = users.find(({ id }) => id === userId);
+  return title || null;
 }

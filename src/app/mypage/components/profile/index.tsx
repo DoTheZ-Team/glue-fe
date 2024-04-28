@@ -1,37 +1,25 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { getProfileImageById } from '@/app/lib/dummyData';
+import { useState, ChangeEvent } from 'react';
 import { Input } from '@/components/Common';
-import FileEdit from '../FileEdit';
-import FileThumbnails from '../FileEdit/FileThumbnails';
+import { getProfileImageById } from '@/app/lib/dummyData';
+import { FileEdit, FileThumbnails, useDefaultFile } from '../Common';
 
-export default function Profile({ id }: { id: number }) {
-  const [profile, setProfile] = useState<File | null>(null);
+export default function Profile() {
+  const [profile, setProfile] = useDefaultFile(
+    getProfileImageById(1),
+    'profile.png',
+    'image/png',
+  );
   const [name, setName] = useState('');
-  const handleNameChange = (e) => {
+
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
-  useEffect(() => {
-    const defaultProfileUrl = getProfileImageById(id);
-    if (defaultProfileUrl) {
-      fetch(defaultProfileUrl)
-        .then((res) => res.blob())
-        .then((blob) => {
-          const defaultProfileFile = new File([blob], 'profile.png', {
-            type: 'image/png',
-          });
-          setProfile(defaultProfileFile);
-        })
-        .catch((error) => {
-          console.error('Error fetching profile image:', error);
-        });
-    }
-  }, [id]);
   return (
     <section className="flex flex-col items-center justify-center pb-250 gap-100">
-      <p className="text-30 font-semibold py-20">profile</p>
+      <p className="text-30 font-semibold py-20">Profile</p>
       <article className="flex flex-row w-full px-100 items-center gap-80">
         <div className="flex flex-col items-center gap-10">
           <FileThumbnails
@@ -42,7 +30,7 @@ export default function Profile({ id }: { id: number }) {
         </div>
         <div className="flex flex-col">
           <label htmlFor="name" className="text-[#747373]">
-            name
+            Name
           </label>
           <Input
             id="name"

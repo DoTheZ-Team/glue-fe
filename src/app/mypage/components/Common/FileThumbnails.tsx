@@ -4,7 +4,7 @@ import { cn } from '@/utils';
 
 type FileThumbnailsProps = {
   file: File | null;
-  deleteFileHandler?: () => void;
+  deleteFileHandler: () => void;
   size?: 'sm' | 'lg';
 };
 
@@ -18,10 +18,8 @@ export default function FileThumbnails({
       {file ? (
         <div
           className={cn(
-            'relative',
-            size === 'sm' ? 'w-250 h-300' : 'w-500 h-250',
-            'border',
-            'border-[#afacac]',
+            'w-500 h-250 relative border border-[#afacac]',
+            size === 'sm' && 'w-250 h-300',
           )}
         >
           <Image

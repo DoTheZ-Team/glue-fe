@@ -1,20 +1,20 @@
 'use client';
 
 import { Button, Input } from '@/components/Common';
-import { useRef } from 'react';
+import { useRef, Dispatch, SetStateAction, ChangeEvent } from 'react';
 
 interface ProfileEditProps {
-  setFile: React.Dispatch<React.SetStateAction<File | null>>;
+  setFile: Dispatch<SetStateAction<File | null>>;
 }
 
 export default function FileEdit({ setFile }: ProfileEditProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const inputEl = e.target as HTMLInputElement;
 
     if (inputEl.files?.[0]) {
-      setFile(inputEl.files?.[0]);
+      setFile(inputEl.files[0]);
     }
   };
 
