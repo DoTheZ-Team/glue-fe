@@ -40,6 +40,10 @@ const config: Config = {
       minHeight: px0To500,
       spacing: px0To500,
       borderRadius: { ...px0To100, button: 6 },
+      boxShadow: {
+        background: '0 0 10px 2px rgba(0, 0, 0, 0.09)',
+        card: '0px 0px 10px 3px rgba(255, 255, 255, 0.25)',
+      },
     },
     fontFamily: {
       luckiest: 'var(--luckiest)',
