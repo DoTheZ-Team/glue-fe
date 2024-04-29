@@ -4,3 +4,4 @@ export { default as Trending } from './Trending';
 export { default as Write } from './Write';
 export { default as Close } from './Close';
 export { default as HamburgerMenu } from './HamburgerMenu';
+export { default as Search } from './Search';
