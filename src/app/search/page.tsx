@@ -2,47 +2,32 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/Common';
-import { SearchBox } from './components';
-import ContentList from './components/ContentList';
-import BlogList from './components/BlogList';
-
-type View = 'default' | 'onlyBlog' | 'onlyContent';
+import { SearchBox, ContentList, BlogList } from './components';
 
 export default function Page() {
-  const [filter, setFilter] = useState<View>('default');
+  const [viewContents, setViewContents] = useState(true);
+  const buttonText = viewContents === true ? '블로그 보기' : '게시물 보기';
 
-  const handleButtonClick = (value: View) => {
-    setFilter((prevFilter) => (prevFilter === value ? 'default' : value));
+  const toggleView = () => {
+    setViewContents((prev) => !prev);
   };
 
   return (
-    <main className="px-200">
+    <div className="px-200">
       <SearchBox />
-      <div className="flex flex-row justify-end px-100 gap-10">
+      <div className="flex flex-row justify-end px-10">
         <Button
-          className="bg-transparent"
-          onClick={() => handleButtonClick('onlyBlog')}
+          className="bg-transparent text-primary font-semibold underline underline-offset-4"
+          onClick={() => toggleView()}
         >
-          블로그 보기
-        </Button>
-        <Button
-          className="bg-transparent"
-          onClick={() => handleButtonClick('onlyContent')}
-        >
-          게시글 보기
+          {buttonText}
         </Button>
       </div>
       <div className="pt-20">
-        {filter === 'default' && (
-          <div className="flex flex-col gap-100 items-center">
-            <BlogList option={filter} />
-            <div className="w-full h-1 bg-primary" />
-            <ContentList />
-          </div>
-        )}
-        {filter === 'onlyBlog' && <BlogList option={filter} />}
-        {filter === 'onlyContent' && <ContentList />}
+        {viewContents ? <ContentList /> : <BlogList />}
+        <BlogList />
+        <ContentList />
       </div>
-    </main>
+    </div>
   );
 }
