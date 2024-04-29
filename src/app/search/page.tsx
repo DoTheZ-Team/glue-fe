@@ -23,13 +23,13 @@ export default function Page() {
           className="bg-transparent"
           onClick={() => handleButtonClick('onlyBlog')}
         >
-          블로그만 보기
+          블로그 보기
         </Button>
         <Button
           className="bg-transparent"
           onClick={() => handleButtonClick('onlyContent')}
         >
-          게시글만 보기
+          게시글 보기
         </Button>
       </div>
       <div className="pt-20">
