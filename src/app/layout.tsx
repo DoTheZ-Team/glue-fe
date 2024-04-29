@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { luckiestGuy, pretendard } from './fonts';
-import './globals.css';
+import '../styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Glue',
@@ -14,10 +14,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${luckiestGuy.variable} ${pretendard.variable} text-[#2f2e2e] `}
-      >
+    <html lang="ko">
+      <body className={`${luckiestGuy.variable} ${pretendard.variable}`}>
         {children}
       </body>
     </html>
