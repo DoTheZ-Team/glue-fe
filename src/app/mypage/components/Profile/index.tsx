@@ -35,6 +35,7 @@ export default function Profile() {
             type="text"
             value={name}
             onChange={handleNameChange}
+            maxLength={8}
             className="border border-primary/70 p-10 rounded-md w-250 h-30"
           />
         </div>

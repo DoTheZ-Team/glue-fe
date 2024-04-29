@@ -11,7 +11,7 @@ export default function BlogName() {
     setTitle(e.target.value);
   };
 
-  const handleDescriptionChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleDescriptionChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(e.target.value);
   };
 
@@ -25,15 +25,16 @@ export default function BlogName() {
           id="title"
           value={title}
           onChange={handleTitleChange}
+          maxLength={15}
           className="border border-primary/70 p-10 rounded-md w-400 h-30"
         />
         <p className="text-[#747373] mt-30">Description</p>
-        <Input
-          type="text"
+        <textarea
           id="description"
           value={description}
           onChange={handleDescriptionChange}
-          className="border border-primary/70 p-10 rounded-md w-400 h-200"
+          maxLength={120}
+          className="border border-primary/70 p-10 rounded-md w-400 h-120"
         />
       </article>
     </section>

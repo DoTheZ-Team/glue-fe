@@ -29,14 +29,13 @@ export default function Profile() {
           <FileEdit setFile={setProfile} />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="name" className="text-[#747373]">
-            Name
-          </label>
+          <p className="text-[#747373]">Name</p>
           <Input
             id="name"
             type="text"
             value={name}
             onChange={handleNameChange}
+            maxLength={8}
             className="border border-primary/70 p-10 rounded-md w-250 h-30"
           />
         </div>
