@@ -3,10 +3,10 @@
 import { useState, ChangeEvent } from 'react';
 import { Input } from '@/components/Common';
 import { getProfileImageById } from '@/app/lib/dummyData';
-import { FileEdit, FileThumbnails, FileSrc } from '../Common';
+import { FileEdit, FileThumbnails, useDefaultFile } from '../Common';
 
 export default function Profile() {
-  const [profile, setProfile] = FileSrc(
+  const [profile, setProfile] = useDefaultFile(
     getProfileImageById(1),
     'profile.png',
     'image/png',

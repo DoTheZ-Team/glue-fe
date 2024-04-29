@@ -2,16 +2,16 @@
 
 import { useState, useEffect } from 'react';
 
-const FileSrc = (
-  getDefaultFile: string,
+const useDefaultFile = (
+  fileSrc: string,
   fileName: string,
   fileType: string,
 ) => {
   const [file, setFile] = useState<File | null>(null);
 
   useEffect(() => {
-    if (getDefaultFile) {
-      fetch(getDefaultFile)
+    if (fileSrc) {
+      fetch(fileSrc)
         .then((res) => res.blob())
         .then((blob) => {
           const defaultFile = new File([blob], fileName, { type: fileType });
@@ -21,9 +21,9 @@ const FileSrc = (
           console.error(`Error fetching ${fileName} image:`, error);
         });
     }
-  }, [getDefaultFile, fileName, fileType]);
+  }, [fileSrc, fileName, fileType]);
 
   return [file, setFile] as const;
 };
 
-export default FileSrc;
+export default useDefaultFile;
