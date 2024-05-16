@@ -5,11 +5,11 @@ import { Button } from '@/components/Common';
 import { SearchBox, ContentList, BlogList } from './components';
 
 export default function Page() {
-  const [viewContents, setViewContents] = useState(true);
-  const buttonText = viewContents === true ? '블로그 보기' : '게시물 보기';
+  const [postView, setPostView] = useState(true);
+  const buttonText = postView === true ? '블로그 보기' : '게시물 보기';
 
   const toggleView = () => {
-    setViewContents((prev) => !prev);
+    setPostView((prev) => !prev);
   };
 
   return (
@@ -23,11 +23,7 @@ export default function Page() {
           {buttonText}
         </Button>
       </div>
-      <div className="pt-20">
-        {viewContents ? <ContentList /> : <BlogList />}
-        <BlogList />
-        <ContentList />
-      </div>
+      <div className="pt-20">{postView ? <ContentList /> : <BlogList />}</div>
     </div>
   );
 }
