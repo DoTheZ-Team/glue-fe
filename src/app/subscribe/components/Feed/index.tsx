@@ -16,10 +16,6 @@ interface FollowPostProps {
 function FollowPostContent({ currentPage, onPageChange }: FollowPostProps) {
   const { blogItemList, postItemList } = useFollowPostContext()!;
 
-  if (!blogItemList || !postItemList) {
-    return <div>Error: Data is not available</div>;
-  }
-
   const { postItems, isFirst, isLast } = postItemList;
   const { blogItems } = blogItemList;
   return (
@@ -55,8 +51,8 @@ export default function Feed() {
     <section className="flex flex-col items-start ml-380">
       <div className="flex flex-col items-center">
         <div className="font-extrabold text-4xl">Others&apos; Stories</div>
-        <p className="w-260 h-2 bg-primary mb-2" />
-        <p className="w-270 h-2 bg-primary mb-2" />
+        <div className="w-260 h-2 bg-primary mb-2" />
+        <div className="w-270 h-2 bg-primary mb-2" />
       </div>
       <article className="grid grid-cols-3 gap-40 py-50">
         <AsyncBoundaryWithQuery pendingFallback={<div>Loading...</div>}>

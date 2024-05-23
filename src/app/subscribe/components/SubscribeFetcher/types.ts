@@ -1,37 +1,24 @@
-export interface FollowListResponse {
-  blogItems: Array<{
-    blogId: number;
-    nickname: string;
-    title: string;
-    profile: string;
-  }>;
+export interface PaginationInfo {
   hasNext: boolean;
   isFirst: boolean;
   isLast: boolean;
 }
-export interface FollowerListResponse {
-  blogItems: Array<{
-    blogId: number;
-    nickname: string;
-    title: string;
-    profile: string;
-  }>;
-  hasNext: boolean;
-  isFirst: boolean;
-  isLast: boolean;
+
+export interface SubscriptionList {
+  blogId: number;
+  nickname: string;
+  title: string;
+  profile: string;
 }
+
+export interface SubscriptionListResponse extends PaginationInfo {
+  blogItems: SubscriptionList[];
+}
+
 export interface FollowPostResponse {
   blogItemList: {
-    blogItems: Array<{
-      blogId: number;
-      nickname: string;
-      title: string;
-      profile: string;
-    }>;
-    hasNext: boolean;
-    hasFirst: boolean;
-    hasLast: boolean;
-  };
+    blogItems: SubscriptionList[];
+  } & PaginationInfo;
   postItemList: {
     postItems: Array<{
       postId: number;
@@ -39,8 +26,5 @@ export interface FollowPostResponse {
       preview: string;
       photo: string;
     }>;
-    hasNext: boolean;
-    isFirst: boolean;
-    isLast: boolean;
-  };
+  } & PaginationInfo;
 }

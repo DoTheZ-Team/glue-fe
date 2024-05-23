@@ -8,28 +8,21 @@ import {
   FollowPostProvider,
 } from './SubscriptionContext';
 
-export function FollowListFetcher({
-  children,
-  page,
-}: StrictPropsWithChildren & { page: number }) {
+type PageWithChildren = StrictPropsWithChildren & { page: number };
+
+export function FollowListFetcher({ children, page }: PageWithChildren) {
   const { data } = useFollowList(page);
 
   return <FollowListProvider {...data}>{children}</FollowListProvider>;
 }
 
-export function FollowerListFetcher({
-  children,
-  page,
-}: StrictPropsWithChildren & { page: number }) {
+export function FollowerListFetcher({ children, page }: PageWithChildren) {
   const { data } = useFollowerList(page);
 
   return <FollowerListProvider {...data}>{children}</FollowerListProvider>;
 }
 
-export function FollowPostFetcher({
-  children,
-  page,
-}: StrictPropsWithChildren & { page: number }) {
+export function FollowPostFetcher({ children, page }: PageWithChildren) {
   const { data } = useFollowPost(page);
 
   return <FollowPostProvider {...data}>{children}</FollowPostProvider>;

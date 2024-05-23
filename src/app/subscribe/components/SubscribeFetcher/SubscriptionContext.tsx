@@ -1,19 +1,15 @@
 'use client';
 
 import { generateContext } from '@/react-utils';
-import {
-  FollowListResponse,
-  FollowerListResponse,
-  FollowPostResponse,
-} from './types';
+import { SubscriptionListResponse, FollowPostResponse } from './types';
 
 export const [FollowListProvider, useFollowListContext] =
-  generateContext<FollowListResponse>({
+  generateContext<SubscriptionListResponse>({
     name: 'follow-list',
   });
 
 export const [FollowerListProvider, useFollowerListContext] =
-  generateContext<FollowerListResponse>({
+  generateContext<SubscriptionListResponse>({
     name: 'follower-list',
   });
 

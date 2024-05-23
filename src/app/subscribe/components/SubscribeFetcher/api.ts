@@ -1,18 +1,14 @@
 import { http } from '@/api';
-import {
-  FollowListResponse,
-  FollowerListResponse,
-  FollowPostResponse,
-} from './types';
+import { FollowPostResponse, SubscriptionListResponse } from './types';
 
 export const getFollowList = (page: number) =>
-  http.get<FollowListResponse>({
+  http.get<SubscriptionListResponse>({
     url: '/blogs/subscriptions/follows',
     params: { page },
   });
 
 export const getFollowerList = (page: number) =>
-  http.get<FollowerListResponse>({
+  http.get<SubscriptionListResponse>({
     url: '/blogs/subscriptions/followers',
     params: { page },
   });

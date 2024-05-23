@@ -23,9 +23,9 @@ export default function Subscription() {
       <div className="flex flex-row gap-5 justify-center pb-30">
         <Button
           className={cn(
-            'border',
-            selectedButton === '내가구독' && 'border-primary',
-            'bg-white rounded-30 p-6 text-[12px] transition-all duration-100',
+            selectedButton === '내가구독' &&
+              'border-primary text-primary font-semibold',
+            'border bg-white rounded-30 p-6 text-[12px] transition-all duration-100',
           )}
           onClick={() => setSelectedButton('내가구독')}
         >
@@ -33,9 +33,9 @@ export default function Subscription() {
         </Button>
         <Button
           className={cn(
-            'border',
-            selectedButton === '나를구독' && 'border-primary',
-            'bg-white rounded-30 p-6 text-[12px] transition-all duration-100',
+            selectedButton === '나를구독' &&
+              'border-primary text-primary font-semibold',
+            'border bg-white rounded-30 p-6 text-[12px] transition-all duration-100',
           )}
           onClick={() => setSelectedButton('나를구독')}
         >
