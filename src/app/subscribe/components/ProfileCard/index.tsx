@@ -1,19 +1,16 @@
-import { users } from '@/app/lib/dummyData';
 import UserIcon from './UserIcon';
 
 interface ProfileCardProps {
-  id?: number;
+  name: string;
+  title: string;
+  profile?: string;
 }
 
-export default function ProfileCard({ id }: ProfileCardProps) {
-  const userData = users.find((user) => user.id === id);
-  if (!userData) return null;
-  const {
-    name = 'aeong',
-    title = '이모저모 블로그',
-    profile = undefined,
-  } = userData;
-
+export default function ProfileCard({
+  name,
+  title,
+  profile,
+}: ProfileCardProps) {
   return (
     <article className="flex flex-row gap-10 items-end m-3">
       <UserIcon src={profile} />
