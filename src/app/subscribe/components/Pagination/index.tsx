@@ -17,30 +17,28 @@ export default function Pagination({
   return (
     <div
       className={cn(
-        'flex justify-center items-center mt-8 text-[#3e3e3e] text-10',
+        'flex justify-center items-center mt-25 text-[#3e3e3e] text-10',
         { invisible: isFirst && isLast },
       )}
     >
-      <ul className="flex list-none">
-        <li className={cn('relative mx-2', { invisible: currentPage === 1 })}>
+      <ul className="flex flex-row items-center">
+        <li className={cn('relative', { invisible: currentPage === 0 })}>
           <Button
             onClick={() => onPageChange(currentPage - 1)}
-            className="block w-12 text-center bg-white"
+            className="text-center bg-white"
           >
-            <span className="absolute left-0">&lt;</span>
+            <span className="">&lt;</span>
           </Button>
         </li>
-        <li key={currentPage} className="mx-1">
-          <span className="block w-6 h-6 leading-6 text-center rounded-full cursor-pointer">
-            {currentPage + 1}
-          </span>
+        <li key={currentPage} className="mx-15">
+          <span className="">{currentPage + 1}</span>
         </li>
-        <li className={cn('relative mx-2', { invisible: isLast })}>
+        <li className={cn('relative', { invisible: !isLast })}>
           <Button
             onClick={() => onPageChange(currentPage + 1)}
-            className="block w-12 text-center bg-white"
+            className="text-center bg-white"
           >
-            <span className="absolute right-0">&gt;</span>
+            <span className="">&gt;</span>
           </Button>
         </li>
       </ul>
