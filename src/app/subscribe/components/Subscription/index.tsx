@@ -16,7 +16,7 @@ export default function Subscription() {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   return (
-    <section className="fixed px-20">
+    <section className="fixed px-20 flex flex-col items-center">
       <div className="text-bold text-[17px] text-primary font-luckiest px-30 pt-100">
         SUBSCRIPTION
       </div>
