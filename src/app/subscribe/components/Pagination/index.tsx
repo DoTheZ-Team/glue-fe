@@ -27,18 +27,18 @@ export default function Pagination({
             onClick={() => onPageChange(currentPage - 1)}
             className="text-center bg-white"
           >
-            <span className="">&lt;</span>
+            <span>&lt;</span>
           </Button>
         </li>
         <li key={currentPage} className="mx-15">
-          <span className="">{currentPage + 1}</span>
+          <span>{currentPage + 1}</span>
         </li>
         <li className={cn('relative', { invisible: !isLast })}>
           <Button
             onClick={() => onPageChange(currentPage + 1)}
             className="text-center bg-white"
           >
-            <span className="">&gt;</span>
+            <span>&gt;</span>
           </Button>
         </li>
       </ul>
