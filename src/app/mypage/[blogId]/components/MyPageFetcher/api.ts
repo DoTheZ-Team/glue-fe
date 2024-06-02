@@ -7,6 +7,19 @@ export const getMyPageInfo = (blogId: number) =>
     params: { blogId },
   });
 
+export const uploadImage = (file: File) => {
+  const formData = new FormData();
+  formData.append('multipartFile', file);
+
+  return http.post<{ imageUrl: string }>({
+    url: '/blogs/images',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
 export const patchMyPageInfo = (
   blogId: number,
   data: Partial<MyPageResponse>,
