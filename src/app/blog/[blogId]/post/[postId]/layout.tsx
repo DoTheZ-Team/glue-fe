@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import { Nav, NavigationIcons, Trending } from '@/components/Common';
+import {
+  Nav,
+  NavigationIcons,
+  PortalContainer,
+  Trending,
+} from '@/components/Common';
 import { AsyncBoundaryWithQuery } from '@/react-utils';
 import PostDetailFetcher from './components/PostDetailFetcher';
 import PostDetailFallback from './components/PostDetailFallback';
@@ -32,7 +37,11 @@ export default function WriteLayout({
           </Link>
         </div>
 
-        <NavigationIcons />
+        <div className="flex gap-10">
+          <NavigationIcons />
+
+          <PortalContainer id="edit-container" />
+        </div>
       </Nav>
 
       <AsyncBoundaryWithQuery pendingFallback={<div>loding 중..</div>}>
