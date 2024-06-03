@@ -6,7 +6,7 @@ import { FileEdit, FileThumbnails } from '../Common';
 import { useMyPageContext } from '../MyPageFetcher/MyPageContext';
 
 export default function Profile() {
-  const { myPageData, handleImageUpload, setMyPageData } = useMyPageContext()!;
+  const { myPageData, handleImageUpload, setMyPageData } = useMyPageContext();
   const { profile, nickname } = myPageData;
   const [file, setFile] = useState<File | null>(null);
   const [name, setName] = useState(nickname);

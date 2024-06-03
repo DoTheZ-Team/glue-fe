@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useMyPageContext } from '../MyPageFetcher/MyPageContext';
 
 export default function BlogInfo() {
-  const { myPageData, setMyPageData } = useMyPageContext()!;
+  const { myPageData, setMyPageData } = useMyPageContext();
   const { title, description } = myPageData;
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);

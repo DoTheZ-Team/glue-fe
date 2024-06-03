@@ -32,7 +32,7 @@ export function MyPageProviderWrapper({
   const [myPageData, setMyPageData] = useState<MyPageResponse>(initialData);
   const uploadImageMutation = useUploadImage();
   const patchMyPageMutation = usePatchMyPage(blogId);
-  const { handleError } = useToastContext()!;
+  const { handleError } = useToastContext();
 
   const handleImageUpload = async (
     file: File,

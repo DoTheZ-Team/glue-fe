@@ -5,7 +5,7 @@ import { FileEdit, FileThumbnails } from '../Common';
 import { useMyPageContext } from '../MyPageFetcher/MyPageContext';
 
 export default function Background() {
-  const { myPageData, handleImageUpload } = useMyPageContext()!;
+  const { myPageData, handleImageUpload } = useMyPageContext();
   const { background } = myPageData;
 
   const [file, setFile] = useState<File | null>(null);

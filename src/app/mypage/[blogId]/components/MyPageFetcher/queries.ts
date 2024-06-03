@@ -22,7 +22,7 @@ export const useUploadImage = () => {
 };
 
 export const usePatchMyPage = (blogId: number) => {
-  const { handleSuccess } = useToastContext()!;
+  const { handleSuccess } = useToastContext();
   return useMutation({
     mutationKey: [],
     mutationFn: ({ data }: { data: Partial<MyPageResponse> }) =>

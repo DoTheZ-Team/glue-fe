@@ -8,7 +8,7 @@ import BlogInfo from './components/BlogInfo';
 import { useMyPageContext } from './components/MyPageFetcher/MyPageContext';
 
 export default function Page() {
-  const { handleSave } = useMyPageContext()!;
+  const { handleSave } = useMyPageContext();
   return (
     <div>
       <Title />

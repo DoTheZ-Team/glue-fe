@@ -5,7 +5,7 @@ import { useErrorBoundaryContext } from '@/react-utils/ErrorboundaryContext';
 import { StrictPropsWithChildren } from '@/types';
 
 export default function MyPageFallback({ children }: StrictPropsWithChildren) {
-  const { error, resetErrorBoundary } = useErrorBoundaryContext()!;
+  const { error, resetErrorBoundary } = useErrorBoundaryContext();
 
   if (error !== null) {
     // TODO: 변경
