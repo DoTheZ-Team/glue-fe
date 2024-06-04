@@ -5,10 +5,11 @@ import Profile from './components/Profile';
 import Title from './components/Title';
 import Background from './components/Background';
 import BlogInfo from './components/BlogInfo';
-import { useMyPageContext } from './components/MyPageFetcher/MyPageContext';
+import useSave from './components/hooks/useSave';
 
 export default function Page() {
-  const { handleSave } = useMyPageContext();
+  const { handleSave } = useSave();
+
   return (
     <div>
       <Title />

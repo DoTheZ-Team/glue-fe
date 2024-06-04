@@ -32,11 +32,10 @@ export default function BlogInfo() {
           className="border border-primary/70 p-10 rounded-md w-400 h-30"
         />
         <p className="text-[#747373] mt-30">Description</p>
-        <Input
-          type="text"
+        <textarea
           id="description"
           value={description}
-          onValueChange={setNewDescription}
+          onChange={(e) => setNewDescription(e.target.value)}
           className="border border-primary/70 p-10 rounded-md w-400 h-200"
         />
       </article>

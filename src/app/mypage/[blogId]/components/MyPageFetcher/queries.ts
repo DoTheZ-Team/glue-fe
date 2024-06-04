@@ -1,6 +1,7 @@
 import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
+import { postImage } from '@/api';
 import { useToastContext } from '@/components/Common/Toast/ToastProvider';
-import { getMyPageInfo, patchMyPageInfo, postImage } from './api';
+import { getMyPageInfo, patchMyPageInfo } from './api';
 import { MyPageResponse } from './types';
 
 export const useMyPageInfo = (blogId: number) =>
@@ -24,10 +25,9 @@ export const usePostImage = () => {
 export const usePatchMyPage = (blogId: number) => {
   const { handleSuccess } = useToastContext();
   return useMutation({
-    mutationKey: [],
+    mutationKey: ['patch-mypage'],
     mutationFn: ({ data }: { data: Partial<MyPageResponse> }) =>
       patchMyPageInfo(blogId, data),
-
     onSuccess: () => {
       handleSuccess('updated !');
     },

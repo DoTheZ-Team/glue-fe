@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { NavigationIcons } from '@/components/Common';
+import { Nav, NavigationIcons } from '@/components/Common';
 import { AsyncBoundaryWithQuery } from '@/react-utils';
 import MyPageFallback from './components/MyPageFallback';
 import MyPageFetcher from './components/MyPageFetcher';
@@ -19,12 +19,12 @@ export default function Layout({
 }) {
   return (
     <main>
-      <nav className="flex justify-between px-30 pt-30">
+      <Nav className="flex justify-between px-30 pt-30">
         <Link href="/" className="text-20 font-luckiest">
           Glue
         </Link>
         <NavigationIcons />
-      </nav>
+      </Nav>
       <AsyncBoundaryWithQuery pendingFallback={<div>loading 중..</div>}>
         <MyPageFallback>
           <MyPageFetcher blogId={blogId}>{children}</MyPageFetcher>

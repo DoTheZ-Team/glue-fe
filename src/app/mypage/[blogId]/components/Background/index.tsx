@@ -1,34 +1,24 @@
 'use client';
 
-import { useState } from 'react';
-import { FileEdit, FileThumbnails } from '../Common';
-import { useMyPageContext } from '../MyPageFetcher/MyPageContext';
+import { FileEdit } from '@/components/Common';
+import { FileThumbnails } from '../Common';
+import useEdit from '../hooks/useEdit';
 
 export default function Background() {
-  const { myPageData, handleImageUpload } = useMyPageContext();
-  const { background } = myPageData;
-
-  const [file, setFile] = useState<File | null>(null);
-
-  const handleFileChange = (newFile: File | null) => {
-    setFile(newFile);
-    if (newFile) {
-      handleImageUpload(newFile, 'background');
-    }
-  };
+  const { handleBackgroundFileChange, background, backgroundFile } = useEdit();
 
   return (
     <section className="flex flex-col items-center pb-250 gap-100">
       <p className="text-30 font-semibold py-20">Background</p>
       <div className="flex flex-col items-center gap-10">
         <FileThumbnails
-          file={file}
+          file={backgroundFile}
           defaultImage="/tempImage/bg.jpeg"
           currentImage={background}
-          deleteFileHandler={() => setFile(null)}
+          deleteFileHandler={() => handleBackgroundFileChange(null)}
           size="lg"
         />
-        <FileEdit onFileSelect={handleFileChange} />
+        <FileEdit onFileSelect={handleBackgroundFileChange} />
       </div>
     </section>
   );
