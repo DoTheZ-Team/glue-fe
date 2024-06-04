@@ -1,7 +1,8 @@
 'use client';
 
-import { Button, Input } from '@/components/Common';
 import { useRef, ChangeEvent } from 'react';
+import Input from '../Input';
+import Button from '../Button';
 
 export default function FileEdit({
   onFileSelect,
