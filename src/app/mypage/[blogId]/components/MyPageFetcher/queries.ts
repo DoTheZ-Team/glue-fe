@@ -6,13 +6,13 @@ import { MyPageResponse } from './types';
 
 export const useMyPageInfo = (blogId: number) =>
   useSuspenseQuery({
-    queryKey: ['mypage-info'],
+    queryKey: ['mypage-info', blogId],
     queryFn: () => getMyPageInfo(blogId),
     select: (data) => data.result,
   });
 
-export const usePostImage = () => {
-  return useMutation({
+export const usePostImage = () =>
+  useMutation({
     mutationKey: ['upload-image'],
     mutationFn: (file: File) => postImage(file),
     onSuccess: (data) => {
@@ -20,12 +20,11 @@ export const usePostImage = () => {
       return imageUrl;
     },
   });
-};
 
 export const usePatchMyPage = (blogId: number) => {
   const { handleSuccess } = useToastContext();
   return useMutation({
-    mutationKey: ['patch-mypage'],
+    mutationKey: ['patch-mypage', blogId],
     mutationFn: ({ data }: { data: Partial<MyPageResponse> }) =>
       patchMyPageInfo(blogId, data),
     onSuccess: () => {
