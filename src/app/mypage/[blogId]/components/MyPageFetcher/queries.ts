@@ -1,6 +1,6 @@
 import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
 import { useToastContext } from '@/components/Common/Toast/ToastProvider';
-import { getMyPageInfo, patchMyPageInfo, uploadImage } from './api';
+import { getMyPageInfo, patchMyPageInfo, postImage } from './api';
 import { MyPageResponse } from './types';
 
 export const useMyPageInfo = (blogId: number) =>
@@ -10,10 +10,10 @@ export const useMyPageInfo = (blogId: number) =>
     select: (data) => data.result,
   });
 
-export const useUploadImage = () => {
+export const usePostImage = () => {
   return useMutation({
     mutationKey: ['upload-image'],
-    mutationFn: (file: File) => uploadImage(file),
+    mutationFn: (file: File) => postImage(file),
     onSuccess: (data) => {
       const { imageUrl } = data.result;
       return imageUrl;

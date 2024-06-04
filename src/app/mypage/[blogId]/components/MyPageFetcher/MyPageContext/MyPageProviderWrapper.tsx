@@ -1,24 +1,10 @@
 'use client';
 
-import { generateContext } from '@/react-utils';
 import { useState } from 'react';
 import { useToastContext } from '@/components/Common/Toast/ToastProvider';
-import { MyPageResponse } from './types';
-import { usePatchMyPage, useUploadImage } from './queries';
-
-interface MyPageContextProps {
-  myPageData: MyPageResponse;
-  setMyPageData: React.Dispatch<React.SetStateAction<MyPageResponse>>;
-  handleImageUpload: (
-    file: File,
-    type: 'profile' | 'background',
-  ) => Promise<void>;
-  handleSave: () => Promise<void>;
-}
-
-const [MyPageProvider, useMyPageContext] = generateContext<MyPageContextProps>({
-  name: 'mypage-info',
-});
+import { MyPageResponse } from '../types';
+import { usePatchMyPage, usePostImage } from '../queries';
+import { MyPageProvider } from './index';
 
 export function MyPageProviderWrapper({
   children,
@@ -30,7 +16,7 @@ export function MyPageProviderWrapper({
   blogId: number;
 }) {
   const [myPageData, setMyPageData] = useState<MyPageResponse>(initialData);
-  const uploadImageMutation = useUploadImage();
+  const uploadImageMutation = usePostImage();
   const patchMyPageMutation = usePatchMyPage(blogId);
   const { handleError } = useToastContext();
 
@@ -67,5 +53,3 @@ export function MyPageProviderWrapper({
 
   return <MyPageProvider {...contextValue}>{children}</MyPageProvider>;
 }
-
-export { useMyPageContext };

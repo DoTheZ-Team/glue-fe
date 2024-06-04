@@ -10,13 +10,14 @@ export default function BlogInfo() {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
 
+  /* eslint react-hooks/exhaustive-deps: off */
   useEffect(() => {
     setMyPageData((prevData) => ({
       ...prevData,
       title: newTitle,
       description: newDescription,
     }));
-  }, [newTitle, newDescription, setMyPageData]);
+  }, [newTitle, newDescription]);
 
   return (
     <section className="flex flex-col items-center pb-250 gap-100">

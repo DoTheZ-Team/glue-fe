@@ -7,7 +7,7 @@ export const getMyPageInfo = (blogId: number) =>
     params: { blogId },
   });
 
-export const uploadImage = (file: File) => {
+export const postImage = (file: File) => {
   const formData = new FormData();
   formData.append('multipartFile', file);
 

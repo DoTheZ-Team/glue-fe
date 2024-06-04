@@ -2,7 +2,7 @@
 
 import { StrictPropsWithChildren } from '@/types';
 import { useMyPageInfo } from './queries';
-import { MyPageProviderWrapper } from './MyPageContext';
+import { MyPageProviderWrapper } from './MyPageContext/MyPageProviderWrapper';
 
 export default function MyPageFetcher({
   children,
