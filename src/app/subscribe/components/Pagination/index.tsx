@@ -22,7 +22,7 @@ export default function Pagination({
       )}
     >
       <ul className="flex flex-row items-center">
-        <li className={cn('relative', { invisible: currentPage === 0 })}>
+        <li className={cn('relative', { invisible: isFirst })}>
           <Button
             onClick={() => onPageChange(currentPage - 1)}
             className="text-center bg-white"
@@ -33,7 +33,7 @@ export default function Pagination({
         <li key={currentPage} className="mx-15">
           <span>{currentPage + 1}</span>
         </li>
-        <li className={cn('relative', { invisible: !isLast })}>
+        <li className={cn('relative', { invisible: isLast })}>
           <Button
             onClick={() => onPageChange(currentPage + 1)}
             className="text-center bg-white"
