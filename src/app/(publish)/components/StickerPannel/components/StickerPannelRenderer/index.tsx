@@ -47,6 +47,9 @@ export default function StickerPannelRenderer({
                 height: 60,
                 x: 300,
                 y: 300,
+                rotation: 0,
+                scaleX: 1,
+                scaleY: 1,
               });
               setShowStickers(() => false);
               setEditable(() => false);

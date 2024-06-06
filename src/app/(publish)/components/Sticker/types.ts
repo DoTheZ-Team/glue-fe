@@ -7,6 +7,9 @@ export interface ImageProps {
   x: number;
   y: number;
   src: string;
+  scaleX: number;
+  scaleY: number;
+  rotation: number;
 }
 
 export interface StickerProps {

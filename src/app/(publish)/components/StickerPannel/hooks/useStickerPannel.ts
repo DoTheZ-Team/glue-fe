@@ -37,7 +37,10 @@ export default function useStickerPannel() {
       height,
       x,
       y,
-    }: Omit<ImageProps, 'resetButtonRef' | 'id'>) => {
+      scaleX,
+      scaleY,
+      rotation,
+    }: Omit<ImageProps, 'id'>) => {
       setStickerStates((currentImages) => [
         ...currentImages,
         {
@@ -47,6 +50,9 @@ export default function useStickerPannel() {
           x,
           y,
           src,
+          scaleX,
+          scaleY,
+          rotation,
         },
       ]);
     },
