@@ -25,7 +25,7 @@ export default function Pagination({
         <li className={cn('relative', { invisible: isFirst })}>
           <Button
             onClick={() => onPageChange(currentPage - 1)}
-            className="text-center bg-white"
+            className="text-center bg-transparent"
           >
             <span>&lt;</span>
           </Button>
@@ -36,7 +36,7 @@ export default function Pagination({
         <li className={cn('relative', { invisible: isLast })}>
           <Button
             onClick={() => onPageChange(currentPage + 1)}
-            className="text-center bg-white"
+            className="text-center bg-transparent"
           >
             <span>&gt;</span>
           </Button>

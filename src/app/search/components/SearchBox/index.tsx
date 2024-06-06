@@ -1,6 +1,11 @@
+'use client';
+
 import { Input, Search } from '@/components/Common';
+import { useSearch } from '@/hooks';
 
 export default function SearchBox() {
+  const { searchQuery, handleInputChange, handleKeyDown } = useSearch();
+
   return (
     <article className="flex justify-center py-30">
       <div
@@ -8,9 +13,12 @@ export default function SearchBox() {
             rounded-2xl gap-15 p-10 border"
       >
         <Input
-          className="h-full w-full  bg-transparent"
+          className="h-full w-full bg-transparent"
           placeholder="Search blog or contents"
           type="text"
+          value={searchQuery}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
         <Search />
       </div>

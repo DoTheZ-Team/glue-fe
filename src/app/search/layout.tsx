@@ -1,22 +1,22 @@
-import type { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
 import { NavigationIcons } from '@/components/Common';
-
-export const metadata: Metadata = {
-  title: 'glue - mypage',
-  description: '마이페이지',
-};
+import { AsyncBoundaryWithQuery } from '@/react-utils';
+import SearchFallback from './components/SearchFallback';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main>
+    <main className="pb-70">
       <nav className="flex justify-between px-30 pt-30">
         <Link href="/" className="text-20 font-luckiest">
           Glue
         </Link>
         <NavigationIcons />
       </nav>
-      {children}
+      <AsyncBoundaryWithQuery>
+        <SearchFallback>{children}</SearchFallback>
+      </AsyncBoundaryWithQuery>
     </main>
   );
 }
