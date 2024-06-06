@@ -8,27 +8,19 @@ export default function StickerRenderer() {
     },
   } = usePostDetailContext();
 
-  return postStickerId.map(({ postStickerItem, url }) => {
-    const {
-      xLocation,
-      yLocation,
-      width,
-      height,
-      angle,
-      postStickerId: stickerId,
-    } = postStickerItem;
+  return postStickerId.map(({ postStickerItem }) => {
+    const { xLocation, yLocation, rotation, url, scaleX, scaleY, stickerId } =
+      postStickerItem;
     return (
       <Image
         key={stickerId}
         src={url}
-        width={width}
-        height={height}
+        width={60}
+        height={60}
         alt={`${postStickerId} alt`}
         className="absolute"
         style={{
-          transform: `translate(${xLocation}px, ${yLocation}px) rotate(${angle}deg)`,
-          width: `${width}px`,
-          height: `${height}px`,
+          transform: `translate(${xLocation}px, ${yLocation}px) rotate(${rotation}deg) scaleX(${scaleX}) scaleY(${scaleY})`,
         }}
       />
     );
