@@ -1,20 +1,39 @@
+'use client';
+
 import { HeaderDrawer } from '@/components/HeaderDrawer';
-import Link from 'next/link';
+import { useSearch } from '@/hooks';
 import Search from '../Icons/Search';
 import Alaram from '../Icons/Alarm';
 import HamburgerMenu from '../Icons/HamburgerMenu';
+import Input from '../Input';
 
 export default function NavigationIcons() {
+  const {
+    showInput,
+    searchQuery,
+    handleSearchClick,
+    handleInputChange,
+    handleKeyDown,
+  } = useSearch();
+
   return (
     <div className="flex items-center gap-12">
-      <Link href="/search">
-        <Search />
-      </Link>
+      <div className="flex items-center">
+        {showInput && (
+          <Input
+            type="text"
+            value={searchQuery}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            className="text-13 mr-10 py-4 border border-[#6e6e6d] rounded-lg"
+          />
+        )}
+        <Search onClick={handleSearchClick} />
+      </div>
 
       {/* TODO: Alaram 연결 */}
       <Alaram />
 
-      {/* TODO: HamburgerMenu 연결 */}
       <HeaderDrawer>
         <HamburgerMenu />
       </HeaderDrawer>
