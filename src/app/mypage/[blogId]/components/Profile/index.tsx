@@ -2,7 +2,7 @@
 
 import { FileEdit, Input } from '@/components/Common';
 import { FileThumbnails } from '../Common';
-import useEdit from '../hooks/useEdit';
+import { useEdit } from '../hooks';
 
 export default function Profile() {
   const {
