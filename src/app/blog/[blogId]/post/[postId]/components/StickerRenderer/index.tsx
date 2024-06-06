@@ -13,7 +13,7 @@ export default function StickerRenderer() {
       postStickerItem;
     return (
       <Image
-        key={stickerId}
+        key={`${stickerId}${xLocation}${xLocation}`}
         src={url}
         width={60}
         height={60}
