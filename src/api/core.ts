@@ -12,7 +12,7 @@ import { BaseResponse } from './types';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 10000,
+  timeout: 1000000,
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
 });
@@ -24,8 +24,10 @@ axiosInstance.interceptors.request.use(
     if (!accessToken) {
       return config;
     }
-    // eslint-disable-next-line
-    config.headers.Authorization = `Bearer ${process.env.NEXT_PUBLIC_MASTER_TOKEN}`;
+    config.headers.set(
+      'Authorization',
+      `Bearer ${process.env.NEXT_PUBLIC_MASTER_TOKEN}`,
+    );
     return config;
   },
   (error: AxiosError) => {
