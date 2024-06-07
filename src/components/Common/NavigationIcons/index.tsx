@@ -3,7 +3,6 @@
 import { HeaderDrawer } from '@/components/HeaderDrawer';
 import { useSearch } from '@/hooks';
 import Search from '../Icons/Search';
-import Alaram from '../Icons/Alarm';
 import HamburgerMenu from '../Icons/HamburgerMenu';
 import Input from '../Input';
 
@@ -30,10 +29,6 @@ export default function NavigationIcons() {
         )}
         <Search onClick={handleSearchClick} />
       </div>
-
-      {/* TODO: Alaram 연결 */}
-      <Alaram />
-
       <HeaderDrawer>
         <HamburgerMenu />
       </HeaderDrawer>
