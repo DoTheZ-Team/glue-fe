@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { SearchResultProvider } from './SearchContext';
 import { useSearchResult } from './quries';
 
@@ -15,7 +15,11 @@ export function SearchResultFetcher({
   size,
   keyword,
 }: SearchResultFetcherProps) {
-  const { data } = useSearchResult(page, size, keyword);
+  const { data, refetch } = useSearchResult(page, size, keyword);
+
+  useEffect(() => {
+    refetch();
+  }, [keyword, refetch]);
 
   return <SearchResultProvider {...data}>{children}</SearchResultProvider>;
 }
