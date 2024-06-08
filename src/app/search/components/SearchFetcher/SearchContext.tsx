@@ -5,5 +5,5 @@ import { SearchResponse } from './types';
 
 export const [SearchResultProvider, useSearchContext] =
   generateContext<SearchResponse>({
-    name: 'search-result',
+    name: 'search-result-context',
   });

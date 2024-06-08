@@ -19,18 +19,18 @@ export default function Page() {
   };
 
   return (
-    <SearchResultFetcher page={currentPage} size={10} keyword={query}>
-      <div className="px-200 text-[#171717]">
-        <SearchBox />
-        <div className="flex flex-row justify-end px-10">
-          <Button
-            className="bg-transparent text-primary font-semibold underline underline-offset-4"
-            onClick={() => toggleView()}
-          >
-            {buttonText}
-          </Button>
-        </div>
-        <div className="p-30 py-40 bg-[#c78f6a] bg-opacity-10 rounded-5 shadow-lg">
+    <div className="px-200 text-[#171717]">
+      <SearchBox />
+      <div className="flex flex-row justify-end px-10">
+        <Button
+          className="bg-transparent text-primary font-semibold underline underline-offset-4"
+          onClick={() => toggleView()}
+        >
+          {buttonText}
+        </Button>
+      </div>
+      <div className="p-30 py-40 bg-[#c78f6a] bg-opacity-10 rounded-5 shadow-lg">
+        <SearchResultFetcher page={currentPage} size={10} keyword={query}>
           {postView ? (
             <ContentList
               currentPage={currentPage}
@@ -39,8 +39,8 @@ export default function Page() {
           ) : (
             <BlogList currentPage={currentPage} onPageChange={setCurrentPage} />
           )}
-        </div>
+        </SearchResultFetcher>
       </div>
-    </SearchResultFetcher>
+    </div>
   );
 }

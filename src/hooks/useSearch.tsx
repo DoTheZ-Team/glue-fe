@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, KeyboardEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
-export const useSearch = () => {
+export function useSearch() {
   const [showInput, setShowInput] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { push } = useRouter();
@@ -27,6 +27,6 @@ export const useSearch = () => {
     handleInputChange,
     handleKeyDown,
   };
-};
+}
 
 export default useSearch;
