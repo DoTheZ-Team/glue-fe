@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode, Suspense } from 'react';
 import { ToastProvider } from '@/components/Common';
 import { GlobalErrorBoundary } from '@/react-utils/ErrorBoundary';
+import { UserProviderWrapper } from '@/components/UserContext';
 import { luckiestGuy, pretendard } from './fonts';
 import '../styles/globals.css';
 import QueryProvider from './lib/QueryProvider';
@@ -22,7 +23,9 @@ export default function RootLayout({
         <GlobalErrorBoundary renderFallback={<div>에러가 발생했어요 !</div>}>
           <Suspense fallback={<div>로딩 중입니다...</div>}>
             <ToastProvider>
-              <QueryProvider>{children}</QueryProvider>
+              <QueryProvider>
+                <UserProviderWrapper>{children}</UserProviderWrapper>
+              </QueryProvider>
             </ToastProvider>
           </Suspense>
         </GlobalErrorBoundary>
