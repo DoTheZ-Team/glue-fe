@@ -1,16 +1,18 @@
 'use client';
 
 import { generateContext } from '@/react-utils';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 interface UserContextProps {
   loginId: number | null;
   setLoginId: (id: number | null) => void;
 }
 
-const [UserProvider, useUserContext] = generateContext<UserContextProps>({
-  name: 'user-info',
-});
+export const [UserProvider, useUserContext] = generateContext<UserContextProps>(
+  {
+    name: 'user-info',
+  },
+);
 
 export function UserProviderWrapper({
   children,
@@ -19,12 +21,13 @@ export function UserProviderWrapper({
 }) {
   const [loginId, setLoginId] = useState<number | null>(null);
 
-  const contextValue = useMemo(() => ({
-    loginId,
-    setLoginId,
-  }), [loginId, setLoginId]);
+  const contextValue = useMemo(
+    () => ({
+      loginId,
+      setLoginId,
+    }),
+    [loginId, setLoginId],
+  );
 
   return <UserProvider {...contextValue}>{children}</UserProvider>;
 }
-
-export { useUserContext };
