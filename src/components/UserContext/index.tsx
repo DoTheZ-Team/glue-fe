@@ -19,10 +19,10 @@ export function UserProviderWrapper({
 }) {
   const [loginId, setLoginId] = useState<number | null>(null);
 
-  const contextValue = {
+  const contextValue = useMemo(() => ({
     loginId,
     setLoginId,
-  };
+  }), [loginId, setLoginId]);
 
   return <UserProvider {...contextValue}>{children}</UserProvider>;
 }
