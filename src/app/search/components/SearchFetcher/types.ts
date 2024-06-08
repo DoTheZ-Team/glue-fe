@@ -15,6 +15,7 @@ export interface PostSearchItem extends PaginationInfo {
 
 export interface BlogInfoItem extends PaginationInfo {
   blogInfoList: Array<{
+    id: number;
     title: string;
     description: string;
     profile: string;

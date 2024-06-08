@@ -15,8 +15,9 @@ export default function BlogList({ currentPage, onPageChange }: BlogListProps) {
     <div>
       <div className="mt-30">
         <div className="flex flex-wrap gap-x-60 gap-y-30 justify-center">
-          {blogInfoList.map(({ title, background, description }) => (
+          {blogInfoList.map(({ id, title, background, description }) => (
             <BlogCard
+              id={id}
               key={generateId()}
               title={title}
               photoUrl={background}
