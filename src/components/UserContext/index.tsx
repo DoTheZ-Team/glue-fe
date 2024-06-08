@@ -3,12 +3,12 @@
 import { generateContext } from '@/react-utils';
 import { useState } from 'react';
 
-interface BlogContextProps {
+interface UserContextProps {
   loginId: number | null;
   setLoginId: (id: number | null) => void;
 }
 
-const [UserProvider, useUserContext] = generateContext<BlogContextProps>({
+const [UserProvider, useUserContext] = generateContext<UserContextProps>({
   name: 'user-info',
 });
 
