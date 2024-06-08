@@ -1,7 +1,7 @@
 'use client';
 
-import { generateContext } from '@/react-utils';
 import { useMemo, useState } from 'react';
+import { generateContext } from '@/react-utils';
 
 interface UserContextProps {
   loginId: number | null;
