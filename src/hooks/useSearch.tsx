@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, KeyboardEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
-export function useSearch() {
+export default function useSearch() {
   const [showInput, setShowInput] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { push } = useRouter();
@@ -15,7 +15,7 @@ export function useSearch() {
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && searchQuery !== '') {
+    if (e.key === 'Enter' && searchQuery.trim() !== '') {
       push(`/search?query=${searchQuery}`);
     }
   };
@@ -28,5 +28,3 @@ export function useSearch() {
     handleKeyDown,
   };
 }
-
-export default useSearch;
