@@ -2,7 +2,7 @@ import { getQueryClient } from '@/app/lib';
 import { useMutation } from '@tanstack/react-query';
 import { ACCESS_TOKEN } from '@/constants';
 import Cookies from 'js-cookie';
-import { useUserContext } from '@/components/Common/UserContext';
+import { useUserContext } from '@/components/Common';
 import { postLogin } from '.';
 
 export const usePostLogin = (code: string) => {

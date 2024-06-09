@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { ReactNode, Suspense } from 'react';
-import { ToastProvider } from '@/components/Common';
+import { ToastProvider, UserProviderWrapper } from '@/components/Common';
 import { GlobalErrorBoundary } from '@/react-utils/ErrorBoundary';
-import { UserProviderWrapper } from '@/components/Common/UserContext';
 import { luckiestGuy, pretendard } from './fonts';
 import '../styles/globals.css';
 import QueryProvider from './lib/QueryProvider';
