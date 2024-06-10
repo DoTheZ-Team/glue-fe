@@ -8,8 +8,9 @@ export default function BlogHeader({
 }: {
   children: React.ReactNode;
 }) {
-  const { blogInfo } = useBlogPageContext();
-  const { title } = blogInfo;
+  const {
+    blogInfo: { title },
+  } = useBlogPageContext();
 
   return (
     <div className="relative">

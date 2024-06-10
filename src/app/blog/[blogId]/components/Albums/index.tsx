@@ -4,8 +4,10 @@ import { useBlogPageContext } from '../BlogFetcher/BlogContext';
 import Slider from './\bSlider';
 
 export default function Albums() {
-  const { blogPostItem } = useBlogPageContext();
-  const { postItems } = blogPostItem;
+  const {
+    blogPostItem: { postItems },
+  } = useBlogPageContext();
+
   // FIXME: photoUrl 적용
   const photos = Array(20)
     .fill(null)

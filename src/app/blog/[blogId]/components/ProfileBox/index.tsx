@@ -5,8 +5,11 @@ import { Button } from '@/components/Common';
 import { useBlogPageContext } from '../BlogFetcher/BlogContext';
 
 export default function ProfileBox() {
-  const { blogInfo, memberName } = useBlogPageContext();
-  const { profile } = blogInfo;
+  const {
+    blogInfo: { profile },
+    memberName,
+  } = useBlogPageContext();
+
   return (
     <section className="flex flex-col  items-center mr-50">
       <div className="relative w-250 h-300 my-10 ">

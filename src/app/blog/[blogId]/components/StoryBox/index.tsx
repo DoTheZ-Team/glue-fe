@@ -16,8 +16,9 @@ export function Story({ title, content }: { title: string; content: string }) {
 }
 
 export default function StoryBox() {
-  const { blogPostItem } = useBlogPageContext();
-  const { postItems } = blogPostItem;
+  const {
+    blogPostItem: { postItems },
+  } = useBlogPageContext();
 
   return (
     <section className="w-full px-100">

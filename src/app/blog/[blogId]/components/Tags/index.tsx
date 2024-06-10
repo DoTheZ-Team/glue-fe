@@ -3,8 +3,9 @@
 import { useBlogPageContext } from '../BlogFetcher/BlogContext';
 
 export default function Tags() {
-  const { blogPostItem } = useBlogPageContext();
-  const { hashtagNames } = blogPostItem;
+  const {
+    blogPostItem: { hashtagNames },
+  } = useBlogPageContext();
 
   return (
     <div className="px-30 py-20 mr-50">

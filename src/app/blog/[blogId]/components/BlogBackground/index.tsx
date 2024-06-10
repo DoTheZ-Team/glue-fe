@@ -4,8 +4,10 @@ import Image from 'next/image';
 import { useBlogPageContext } from '../BlogFetcher/BlogContext';
 
 export default function BlogBackground() {
-  const { blogInfo } = useBlogPageContext();
-  const { description, background } = blogInfo;
+  const {
+    blogInfo: { description, background },
+  } = useBlogPageContext();
+
   return (
     <div className="w-full h-screen">
       <div className="relative w-full h-full group">
