@@ -6,12 +6,6 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: [
-      process.env.NEXT_PUBLIC_STICKER_URL,
-      ,
-      process.env.NEXT_PUBLIC_IMAGE_URL,
-      'glueyourday.kro.kr',
-    ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -25,7 +19,7 @@ const nextConfig = {
       },
       {
         protocol: 'http',
-        hostname: 'glueyourday.kro.kr',
+        hostname: 'www.glueyourday.kro.kr',
         port: '',
       },
     ],
