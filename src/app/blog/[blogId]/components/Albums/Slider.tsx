@@ -1,24 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/Common';
+import { useSlider } from './useSlider';
 
-function Slider({ photos }: { photos: string[] }) {
+export default function Slider({ photos }: { photos: string[] }) {
   const temp = '/tempImage/6.jpg';
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === Math.ceil(photos.length / 5) - 1 ? 0 : prevIndex + 1,
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? Math.ceil(photos.length / 5) - 1 : prevIndex - 1,
-    );
-  };
+  const { currentIndex, nextSlide, prevSlide } = useSlider(photos.length);
 
   return (
     <div className="relative w-full overflow-hidden shadow-lg">
@@ -56,5 +45,3 @@ function Slider({ photos }: { photos: string[] }) {
     </div>
   );
 }
-
-export default Slider;
