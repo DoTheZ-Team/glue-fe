@@ -8,6 +8,6 @@ export const getBlogPageInfo = (blogId: number) =>
 
 export const getBoard = (blogId: number, page: number, size?: number) =>
   http.get<BoardResponse>({
-    url: `posts/blogs/stories/${blogId}`,
+    url: `/posts/blogs/stories/${blogId}`,
     params: { page, size },
   });

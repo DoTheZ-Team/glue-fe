@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, ChangeEvent } from 'react';
+import { useRef, ChangeEvent, useCallback } from 'react';
 import Input from '../Input';
 import Button from '../Button';
 
@@ -19,11 +19,11 @@ export default function FileEdit({
     }
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     if (inputRef.current) {
       inputRef.current.click();
     }
-  };
+  }, []);
 
   return (
     <div>

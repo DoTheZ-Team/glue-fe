@@ -4,24 +4,19 @@ import { useState } from 'react';
 import { Button } from '@/components/Common';
 import { cn } from '@/utils';
 import { usePostSubscribe } from './api/queries';
+import { useBlogPageContext } from '../BlogFetcher/BlogContext';
 
-interface SubscriptionButtonProps {
-  initialSubscribeStatus: boolean;
-  blogId: number;
-}
-
-export default function SubscriptionButton({
-  initialSubscribeStatus,
-  blogId,
-}: SubscriptionButtonProps) {
-  const [isSubscribe, setIsSubscribe] = useState<boolean>(
-    initialSubscribeStatus,
-  );
-  const { mutate } = usePostSubscribe(blogId, isSubscribe);
+export default function SubscriptionButton() {
+  const {
+    isSubscribe,
+    blogInfo: { blogId },
+  } = useBlogPageContext();
+  const [Subscribe, setSubscribe] = useState<boolean>(isSubscribe);
+  const { mutate } = usePostSubscribe(blogId, Subscribe);
 
   const handleClick = () => {
     mutate();
-    setIsSubscribe((prev) => !prev);
+    setSubscribe((prev) => !prev);
   };
 
   return (
@@ -30,10 +25,10 @@ export default function SubscriptionButton({
         onClick={handleClick}
         className={cn(
           'font-semibold w-120 h-30 m-25',
-          isSubscribe ? 'bg-white text-primary' : 'bg-primary text-white',
+          Subscribe ? 'bg-white text-primary' : 'bg-primary text-white',
         )}
       >
-        {isSubscribe ? 'Unsubscribe' : 'Subscribe'}
+        {Subscribe ? 'Unsubscribe' : 'Subscribe'}
       </Button>
     </div>
   );

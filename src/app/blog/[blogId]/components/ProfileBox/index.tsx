@@ -11,7 +11,6 @@ export default function ProfileBox() {
     blogInfo: { blogId, profile },
     memberName,
     loginBlogId,
-    isSubscribe,
   } = useBlogPageContext();
 
   return (
@@ -28,10 +27,7 @@ export default function ProfileBox() {
           </Button>
         </Link>
       ) : (
-        <SubscriptionButton
-          blogId={blogId}
-          initialSubscribeStatus={isSubscribe}
-        />
+        <SubscriptionButton />
       )}
     </section>
   );
