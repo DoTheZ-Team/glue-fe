@@ -27,7 +27,6 @@ export default function Page() {
               <Background />
             </section>
           </MyPageFetcher>
-          ) : (<div>Loading...</div>)
         </MyPageFallback>
       </AsyncBoundaryWithQuery>
     </div>
