@@ -13,7 +13,7 @@ export const useBlogPage = (blogId: number) =>
 
 export const useBorad = (blogId: number, page: number) =>
   useSuspenseQuery({
-    queryKey: ['blog-borad', blogId],
+    queryKey: ['blog-borad', page],
     queryFn: () => getBoard(blogId, page, 10),
     refetchOnMount: false,
     select: (data) => data.result,

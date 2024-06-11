@@ -11,7 +11,6 @@ import {
   BlogHeader,
   Board,
 } from './components';
-import { BoardFetcher } from './components/BlogFetcher';
 import { useBlogPageContext } from './components/BlogFetcher/BlogContext';
 
 export default function Page() {
@@ -38,16 +37,15 @@ export default function Page() {
                 {showBoard ? <DownArrow /> : <HamburgerMenu />}
               </Button>
             </div>
-            <BoardFetcher blogId={blogId} page={0}>
-              {showBoard ? (
-                <Board />
-              ) : (
-                <>
-                  <StoryBox />
-                  <Albums />
-                </>
-              )}
-            </BoardFetcher>
+
+            {showBoard ? (
+              <Board blogId={blogId} />
+            ) : (
+              <>
+                <StoryBox />
+                <Albums />
+              </>
+            )}
           </section>
         </div>
       </div>
