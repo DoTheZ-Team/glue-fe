@@ -24,7 +24,13 @@ export default function Slider({ photos }: { photos: string[] }) {
             style={{ width: `${slideWidth}%`, height: '200px' }}
           >
             <div className="w-full h-full">
-              <Image alt="photo" src={photo} layout="fill" objectFit="cover" />
+              <Image
+                loader={() => photo || temp}
+                alt="photo"
+                src={photo || temp}
+                layout="fill"
+                objectFit="cover"
+              />
             </div>
           </div>
         ))}
