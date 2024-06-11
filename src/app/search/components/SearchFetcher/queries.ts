@@ -1,5 +1,3 @@
-// 'use clinet';
-
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getSearchResult } from './api';
 

@@ -1,11 +1,11 @@
-import { ReactNode, useCallback } from 'react';
+import { ReactNode, useCallback, useMemo } from 'react';
 import { useIntersect } from '@/hooks';
 import { SearchResultProvider } from './SearchContext';
 import { useSearchResult } from './queries';
 import { SearchResponse } from './types';
 
 interface SearchResultFetcherProps {
-  children: () => ReactNode;
+  children: ReactNode;
   size: number;
   keyword: string;
 }
@@ -70,15 +70,18 @@ export function SearchResultFetcher({
       hasNext: false,
     },
   );
-  const mergedData: SearchResponse = {
-    postSearchItem: mergedPostSearchItem,
-    blogInfoItem: mergedBlogInfoItem,
-  };
+
+  const mergedData = useMemo(() => {
+    return {
+      postSearchItem: mergedPostSearchItem,
+      blogInfoItem: mergedBlogInfoItem,
+    };
+  }, [mergedPostSearchItem, mergedBlogInfoItem]);
 
   return (
     <SearchResultProvider {...mergedData}>
-      {children()}
-      <div ref={endOfListRef} style={{ height: 1 }} />
+      {children}
+      <div ref={endOfListRef} />
     </SearchResultProvider>
   );
 }

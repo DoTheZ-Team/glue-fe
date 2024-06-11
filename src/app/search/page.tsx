@@ -34,7 +34,7 @@ export default function Page() {
         <AsyncBoundaryWithQuery>
           <SearchFallback>
             <SearchResultFetcher size={10} keyword={query}>
-              {() => <div>{postView ? <ContentList /> : <BlogList />}</div>}
+              <div>{postView ? <ContentList /> : <BlogList />}</div>
             </SearchResultFetcher>
           </SearchFallback>
         </AsyncBoundaryWithQuery>
