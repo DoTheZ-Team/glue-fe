@@ -6,7 +6,7 @@ import { Button } from '@/components/Common';
 import { useSlider } from './useSlider';
 
 export default function Slider({ photos }: { photos: string[] }) {
-  const temp = '/tempImage/6.jpg';
+  const photoCount = photos.length;
   const { currentIndex, nextSlide, prevSlide } = useSlider(photos.length);
 
   return (
@@ -19,9 +19,9 @@ export default function Slider({ photos }: { photos: string[] }) {
           <div key={photo} className="relative flex-none w-1/5 h-200">
             <div className="w-full h-full">
               <Image
-                loader={() => photo || temp}
+                loader={() => photo}
                 alt="photo"
-                src={photo || temp}
+                src={photo}
                 layout="fill"
                 objectFit="cover"
               />
