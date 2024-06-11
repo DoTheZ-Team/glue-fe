@@ -19,6 +19,12 @@ export default function FileEdit({
     }
   };
 
+  const handleButtonClick = () => {
+    if (inputRef.current) {
+      inputRef.current.click();
+    }
+  };
+
   return (
     <div>
       <Input
@@ -30,7 +36,7 @@ export default function FileEdit({
         onChange={handleFileSelect}
       />
       <Button
-        onClick={inputRef.current?.click}
+        onClick={handleButtonClick}
         className="w-70 m-5 p-4 bg-primary/30 text-primary"
       >
         edit
