@@ -2,12 +2,16 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/Common';
+import Link from 'next/link';
 import { useBlogPageContext } from '../BlogFetcher/BlogContext';
+import SubscriptionButton from '../SubscriptionButton';
 
 export default function ProfileBox() {
   const {
-    blogInfo: { profile },
+    blogInfo: { blogId, profile },
     memberName,
+    loginBlogId,
+    isSubscribe,
   } = useBlogPageContext();
 
   return (
@@ -17,10 +21,18 @@ export default function ProfileBox() {
       </div>
       <div className="text-xl text-center mt-10 ">{memberName}</div>
       <p className="w-200 h-3 bg-primary" />
-      {/* FIXME: 자신의 블로그일경우 off */}
-      <Button className="bg-primary text-white font-semibold w-120 h-30 m-25">
-        subscribe
-      </Button>
+      {loginBlogId === blogId ? (
+        <Link href="/mypage">
+          <Button className="bg-secondary text-primary border border-primary font-semibold w-120 h-30 m-25">
+            Edit Profile
+          </Button>
+        </Link>
+      ) : (
+        <SubscriptionButton
+          blogId={blogId}
+          initialSubscribeStatus={isSubscribe}
+        />
+      )}
     </section>
   );
 }
