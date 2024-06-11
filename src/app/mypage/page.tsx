@@ -16,21 +16,18 @@ export default function Page() {
     <div>
       <AsyncBoundaryWithQuery pendingFallback={<div>loading 중..</div>}>
         <MyPageFallback>
-          {loginId !== null ? (
-            <MyPageFetcher blogId={1}>
-              <Title />
-              <section className="flex flex-col items-center py-400">
-                <div className="h-1 w-500 bg-[#979696]" />
-                <Profile />
-                <div className="h-1 w-500 bg-[#979696]" />
-                <BlogInfo />
-                <div className="h-1 w-500 bg-[#979696]" />
-                <Background />
-              </section>
-            </MyPageFetcher>
-          ) : (
-            <div>Loading...</div>
-          )}
+          <MyPageFetcher blogId={loginId}>
+            <Title />
+            <section className="flex flex-col items-center py-400">
+              <div className="h-1 w-500 bg-[#979696]" />
+              <Profile />
+              <div className="h-1 w-500 bg-[#979696]" />
+              <BlogInfo />
+              <div className="h-1 w-500 bg-[#979696]" />
+              <Background />
+            </section>
+          </MyPageFetcher>
+          ) : (<div>Loading...</div>)
         </MyPageFallback>
       </AsyncBoundaryWithQuery>
     </div>
