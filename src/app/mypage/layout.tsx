@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Nav, NavigationIcons, useUserContext } from '@/components/Common';
-import { AsyncBoundaryWithQuery } from '@/react-utils';
-import { useRouter } from 'next/navigation';
-import MyPageFallback from './components/MyPageFallback';
-import MyPageFetcher from './components/MyPageFetcher';
+import { Nav, NavigationIcons } from '@/components/Common';
 
 export const metadata: Metadata = {
   title: 'glue - mypage',
@@ -12,10 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { loginId } = useUserContext();
-  const { push } = useRouter();
-  if (loginId === null) push('/login');
-
   return (
     <main>
       <Nav className="flex justify-between px-30 pt-30">
@@ -24,15 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Link>
         <NavigationIcons />
       </Nav>
-      <AsyncBoundaryWithQuery pendingFallback={<div>loading 중..</div>}>
-        <MyPageFallback>
-          {loginId !== null ? (
-            <MyPageFetcher blogId={loginId}>{children}</MyPageFetcher>
-          ) : (
-            <div>Login ID is not available.</div>
-          )}
-        </MyPageFallback>
-      </AsyncBoundaryWithQuery>
+      {children}
     </main>
   );
 }
