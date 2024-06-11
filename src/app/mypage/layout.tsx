@@ -26,7 +26,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </Nav>
       <AsyncBoundaryWithQuery pendingFallback={<div>loading 중..</div>}>
         <MyPageFallback>
-          <MyPageFetcher blogId={loginId}>{children}</MyPageFetcher>
+          {loginId !== null ? (
+            <MyPageFetcher blogId={loginId}>{children}</MyPageFetcher>
+          ) : (
+            <div>Login ID is not available.</div>
+          )}
         </MyPageFallback>
       </AsyncBoundaryWithQuery>
     </main>
